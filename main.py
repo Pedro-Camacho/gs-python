@@ -7,9 +7,9 @@ nomes = []
 
 def inserir_dados():
     nomes.append(input("Digite o nome de quem realiza os registros:"))
-    datas.append(input("Digite a data de registro dd/mm/aaaa"))
-    temperaturas.append(input("Digite o valor da temperatura"))
-    phs.append(input("Digite o ph registrado"))
+    datas.append(int(input("Digite a data de registro dd/mm/aaaa")))
+    temperaturas.append(int(input("Digite o valor da temperatura")))
+    phs.append(int(input("Digite o ph registrado")))
     turb_atual=int(input("Digite o valor da turbidez entre 0 a 5"))
     while turb_atual >5 and turb_atual<0:
         turb_atual=int(input("Digite o valor da turbidez entre 0 a 5"))
@@ -65,9 +65,9 @@ def analizar_dados(data):
     ph_analizando = phs[analizando]
     turb_analizando = turbidez[analizando]
     data_analizada = datas[analizando]
-    nome_analizado = nomes[nome_analizado]
+    nome_analizado = nomes[analizando]
 
-    print(f"Aqui está o relatório feito por {nome_analizado} na data {data_analizada}")
+    print(f'Aqui está o relatório feito por {nome_analizado} na data {data_analizada}')
     analiza_temperatura(temp_analizando)
     analiza_ph(ph_analizando)
     analiza_turbidez(turb_analizando)
@@ -83,5 +83,31 @@ def editar_dados(data):
     nova_turb = input("Digite o valor de turbidez atualizado:")
     turbidez[editando] = nova_turb 
 
-print("bem vindo ao programa de registro de dados da qualidade de agua")
 
+def lista_registros():
+    for i in range(len(datas)):
+        print(f'Data: {datas[i]}, Usuario: {nomes[i]}, Temperatura: {temperaturas[i]}, Ph: {phs[i]}, Turbidez: {turbidez[i]}')
+
+print("bem vindo ao programa de registro de dados da qualidade de agua")
+while True:
+    opcao=input("Escolha qual opração deseja: \n1-Inserir Dados.\n2-Analizar Dado.\n3-Editar Dado\n4-Listar registro\n")
+    while not opcao.isnumeric():
+        opcao=input("Escolha qual opração deseja: \n1-Inserir Dados.\n2-Analizar Dado.\n3-Editar Dado\n4-Listar registros.\n")
+    opcao=int(opcao)
+
+    if opcao == 0:
+        break
+    elif opcao == 1:
+        inserir_dados()
+    elif opcao == 2:
+        data=input("Digite a data da analiza (dd/mm/aaaa)")
+        data=int(data)
+        analizar_dados(data)
+    elif opcao == 3:
+        data=input("Digite a data que deseja editar (dd/mm/aaaa)")
+        data=int(data)
+        editar_dados(data)
+    elif opcao == 4:
+        lista_registros()
+    else:
+        print("Digite uma opcao valida!")
