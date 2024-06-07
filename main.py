@@ -4,6 +4,7 @@ turbidez = []
 datas = [] 
 nomes = []
 
+
 def inserir_dados():
     nomes.append(input("Digite o nome de quem realiza os registros:"))
     datas.append(input("Digite a data de registro dd/mm/aaaa"))
@@ -61,7 +62,7 @@ def analiza_turbidez(turbi):
 def analizar_dados(data):
     analizando=acha_index(datas, data)
     temp_analizando = temperaturas[analizando]
-    ph_analizando = ph[analizando]
+    ph_analizando = phs[analizando]
     turb_analizando = turbidez[analizando]
     data_analizada = datas[analizando]
     nome_analizado = nomes[nome_analizado]
@@ -83,23 +84,4 @@ def editar_dados(data):
     turbidez[editando] = nova_turb 
 
 print("bem vindo ao programa de registro de dados da qualidade de agua")
-opcao=None
-while opcao!=0:
-    opcao=input('Digite qual função deseja  \n'
-                '1-analizar dados:  \n'
-                '2-iserir dados:  \n'
-                '3-editar dados:  \n'
-                '0-sair')
-    match opcao:
-        case 1:
-            data=input("Digite a data em que deseja a analize")
-            analizar_dados(data)
-        case 2:            
-            inserir_dados()
-        case 3:
-            data=input("Digite a data que deseja editar os dados")
-            editar_dados(data)
-        case 0:
-            break
-
 
