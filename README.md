@@ -5,6 +5,8 @@
 - Pedro Almeida Camacho rm: 556831
 - Diógenes Henrique do Santos Costa rm: 559127
 
+### Link para vídeo
+https://www.youtube.com/watch?v=rAagfHRWg6E
 ## Nosso projeto
 No nosso projeto de python temos um script para realizar a interpretação dos dados coletados pelo nosso cascudo prototipo de arduino, 
 e assim enviar para o usuario mensagens em relação ao estado da água.
